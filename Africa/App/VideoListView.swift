@@ -11,7 +11,7 @@ struct VideoListView: View {
     
     // MARK: - PROPERTIES
     
-    var videos: [Video] = Bundle.main.decode("videos.json")
+   @State var videos: [Video] = Bundle.main.decode("videos.json")
     
     // MARK: - BODY
     
@@ -25,6 +25,16 @@ struct VideoListView: View {
             } //: LIST
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Videos", displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        // Shuffle videos
+                        videos.shuffle()
+                    }) {
+                        Image(systemName: "arrow.2.squarepath")
+                    }
+                }
+            }
         } //: NAVIGATION
     }
 }
