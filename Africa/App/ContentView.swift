@@ -62,6 +62,7 @@ struct ContentView: View {
                         } //: LOOP
                         
                         CreditsView()
+                            .modifier(CenterModifier())
                     } //: LIST
                 } else {
                     ScrollView(.vertical, showsIndicators: false) {
